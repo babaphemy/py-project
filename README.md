@@ -4,8 +4,8 @@
 
 #### install dependencies
 
-- Docker
 - uv
+- Docker
 - Alembic
 - SQLAlchemy
 - Postgres
