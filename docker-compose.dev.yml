@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  app:
+    volumes:
+      # Mount source code for hot reloading in development
+      - .:/app
+    command:
+      [
+        "uv",
+        "run",
+        "uvicorn",
+        "api.app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+      ]
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - REDIS_URL=redis://redis:6379/0
+      - DEBUG=true
+
+  db:
+    ports:
+      # Expose PostgreSQL port for external connections in development
+      - "5432:5432"
+
+  redis:
+    ports:
+      # Expose Redis port for external connections in development
+      - "6379:6379"

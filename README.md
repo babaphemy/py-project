@@ -1,8 +1,8 @@
-# Py Project by Temi
+# Microservice INIT
 
 ### Project Setup
 
-#### install dependencies
+#### dependencies
 
 - Docker
 - uv
@@ -10,7 +10,15 @@
 - SQLAlchemy
 - Postgres
 
-## Tasks
+##
+
+### Run the app
+
+- Create alembic revision:
+
+```bash
+make alembic-rev m="create user table"
+```
 
 ### User Management
 
