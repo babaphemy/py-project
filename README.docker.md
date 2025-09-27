@@ -253,4 +253,4 @@ py-init/
 
 ## License
 
-[Your License Here]
+MIT License
